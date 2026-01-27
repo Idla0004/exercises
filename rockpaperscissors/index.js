@@ -4,11 +4,14 @@
 const rock_btn = document.querySelector(".rock");
 const paper_btn = document.querySelector(".paper");
 const scissors_btn = document.querySelector(".scissors");
-// const shakehand_btn = document.querySelector(shake);
 const player1 = document.querySelector("#player1");
 const player2 = document.querySelector("#player2");
 let userChoice;
 let computerChoice;
+let chosenRock = "1";
+// lav enten et array med rock, paper, scissors, index 1, 2 -->
+// eller math random
+
 // const resultDisplay = document.querySelector(".result");
 // const vinder = "You win!";
 // const taber = "You lose!";
@@ -56,4 +59,8 @@ function animateHands() {
   console.log("Handshake start userChoice works", userChoice);
 }
 
+// vinder tekst, loose tekst, draw tekst
+// genkende om de vandt, tabte eller uafgjort
+// tilføj classes til hænderne med valg
+// 9 mulige valg
 //At lave: Tilføj en eventlistener på animationer, så der sker noget, når den ender.
