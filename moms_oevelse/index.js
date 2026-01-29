@@ -12,10 +12,23 @@
 //console.log("show moms", pris + (pris * moms) / 100);
 
 // 2. Lav moms som et default parameter sat til 25.
-let pris = 100;
-let moms;
+// let pris = 100;
+// let moms;
 
-findMoms(pris, (moms = "25"));
-function findMoms(pris, moms) {
-  console.log(pris + (pris * moms) / 100);
+// findMoms(pris, (moms = "25"));
+// function findMoms(pris, moms) {
+//   console.log("pris:", pris);
+//   console.log("moms:", moms, "%");
+//   console.log("pris med moms:", pris + (pris * moms) / 100);
+// }
+
+//Kan også skrives sådan her og kalde prisen direkte i function
+
+findMoms(100, 25);
+function findMoms(pris, moms = 25) {
+  console.log("pris:", pris);
+  console.log("moms:", moms, "%");
+  console.log("pris med moms:", pris + (pris * moms) / 100);
 }
+
+// hedder parametre, når man kigger på function og argumenter, når man kalder det.
