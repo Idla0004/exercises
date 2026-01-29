@@ -8,14 +8,19 @@
   </head>
   <body>
     <main>
-      <h1>Gæt et tal, computer!</h1>
-      <section>
+      <section class="computer-gaet">
+        <h1>Gæt et tal, computer!</h1>
         <h2 id="message"></h2>
+        <button class="startgame">Start spil</button>
         <h2 class="computeranswer"></h2>
-        <button class="startgame">Start game</button>
-        <button class="toohigh">For højt!</button>
-        <button class="toolow">For lavt!</button>
-        <button class="winner">Det er rigtigt!</button>
+        <img src="img/higher.png" class="higher-img hidden" alt="go higher" />
+        <img src="img/lower.png" class="lower-img hidden" alt="go lower" />
+        <img src="img/winner.png" class="winner-img hidden" alt="you win!" />
+        <div class="knapper">
+          <button class="toohigh">For højt!</button>
+          <button class="toolow">For lavt!</button>
+          <button class="winner">Det er rigtigt!</button>
+        </div>
       </section>
     </main>
     <script src="index.js" defer></script>
