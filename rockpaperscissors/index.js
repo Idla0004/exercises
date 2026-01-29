@@ -24,6 +24,16 @@ function init() {
   scissors_btn.addEventListener("click", scissorsClick);
 }
 
+function computerChooses() {
+  animateHands();
+  // Opretter et array med de mulige valg
+  const choices = ["rock", "paper", "scissors"];
+  const randomChoice = Math.floor(Math.random() * choices.length);
+  // Tildeler det tilfældige valg til computerChoice
+  computerChoice = choices[randomChoice];
+  console.log("Computer choice and userChoice", userChoice, computerChoice); // Log computerChoice her efter den er tildelt en værdi
+}
+
 // Klik funktion
 function rockClick() {
   console.log("Rock chosen!");
@@ -43,21 +53,17 @@ function scissorsClick() {
   computerChooses();
 }
 
-function computerChooses() {
-  animateHands();
-  // Opretter et array med de mulige valg
-  const choices = ["rock", "paper", "scissors"];
-  const randomChoice = Math.floor(Math.random() * choices.length);
+// function animateHands(checkResult) {
+//   player1.classList.ass("shake");
+//   player1.addEventListener("animationend", () => {
+//     player1.classList.remove("shake");
+//     player1.classList.add(userChoice);
+//   });
+// }
 
-  // Tildeler det tilfældige valg til computerChoice
-  computerChoice = choices[randomChoice];
-  console.log("Computer choice and userChoice", userChoice, computerChoice); // Log computerChoice her efter den er tildelt en værdi
-}
 function animateHands() {
   // læg animation  af på de to hænder.
   player1.classList.add("shake");
-  player2.classList.add("shake");
-
   player1.addEventListener("animationend", () => {
     // for at fjerne animationen skriver jeg
     player1.classList.remove("shake");
@@ -65,6 +71,7 @@ function animateHands() {
     player1.classList.add(userChoice);
   });
   console.log("Handshake start userChoice works", userChoice);
+  player2.classList.add("shake");
   player2.addEventListener("animationend", () => {
     // for at fjerne animationen skriver jeg
     player2.classList.remove("shake");
@@ -111,3 +118,13 @@ document.addEventListener("DOMContentLoaded", init);
 
 // Den vælger stadig ikke de rigtige billeder eller rigtige resultat efter 2-3 runde,
 // spørg om hjælp i morgen.
+
+// Noter fra opfølgning af Rock, paper, scissors:
+// brug eventuelt logical or med ||
+// Kig på even listener, kan være der fejlen ligger i, at spillet kun virker, når siden er reloadet.
+// lav eventuelt functions med choosePaper, etc.
+// fjern hvis der er en classlist eller eventlistener tilføjet, hvor den bestemmer hvad  der skal ske.
+// I console.log kan man lede efter noget specifikt med classList.contains("rock").
+// ud af eventet kan vi hente et specifikt target ind, for at vise om den indeholder den klasse man vil se.
+// Hver gang vi bruger en evenlistener, kommer der et objekt for evenlisteneren, vi kan kalde den evt eller event og den fanger de elementer,
+// der er tilføjet med evenlistener.
