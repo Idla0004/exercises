@@ -7,8 +7,8 @@ html {
   box-shadow: 5px 10px #ab97fb;
   padding: 20px;
   border-radius: 10px;
-  max-width: 600px;
-  margin: 2rem auto;
+  width: 600px;
+  margin: 10rem auto;
   text-align: center;
   font-family: Arial, sans-serif;
 }
@@ -31,16 +31,6 @@ html {
 .toolow:hover,
 .winner:hover {
   box-shadow: 2px 4px #ab97fb;
-}
-
-.guessright input {
-  padding: 10px;
-  font-size: 16px;
-  border: 2px solid #597f8e;
-  border-radius: 5px;
-  width: 100px;
-  text-align: center;
-  outline: none;
 }
 
 .hidden {
