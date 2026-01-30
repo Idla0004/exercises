@@ -33,8 +33,6 @@ startGame.addEventListener("click", function () {
 
     // Vis billedet for "gæt lavere"
     lowerImg.classList.remove("hidden");
-    higherImg.classList.add("hidden");
-    winnerImg.classList.add("hidden");
     e.preventDefault();
   });
 
@@ -47,7 +45,6 @@ startGame.addEventListener("click", function () {
     // Vis billedet for "gæt højere"
     higherImg.classList.remove("hidden");
     lowerImg.classList.add("hidden");
-    winnerImg.classList.add("hidden");
     e.preventDefault();
   });
 
