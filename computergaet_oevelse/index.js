@@ -25,8 +25,8 @@ startGame.addEventListener("click", function () {
   console.log("Nyt tal:", number);
 
   tooHigh.addEventListener("click", (e) => {
-    max = number; // næste gæt efter 50 er derfor max = 49
-    number = Math.floor((min + max) / 2); // dividerer 49 med 2 og får 24
+    max = number; // næste gæt efter 50 er derfor max = 25
+    number = Math.floor((min + max) / 2); // dividerer 50 med 2 og får 25
     console.log(" tal:", number);
     document.querySelector(".computeranswer").innerHTML =
       "Er det " + number + "?";
@@ -39,9 +39,9 @@ startGame.addEventListener("click", function () {
   });
 
   tooLow.addEventListener("click", (e) => {
-    min = number; // næste gæt efter 50 er derfor max = 51
-    number = Math.floor((min + max) / 2); // det sætter tal gættet ned ved at min er 51, max er 100 og så dividerer med 2 hvilket bliver = 75
-    console.log(" tal:", number);
+    min = number; // næste gæt efter 50
+    number = Math.floor((min + max) / 2); // det sætter tal gættet ned ved at min er 50, max er 100 og så dividerer med 2 hvilket bliver = 75
+    console.log("tal: ", number);
     document.querySelector(".computeranswer").innerHTML =
       "Er det " + number + "?";
     // Vis billedet for "gæt højere"
