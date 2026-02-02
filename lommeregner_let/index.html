@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <script type="module" src="../utils/utils_lib.js" defer></script>
+    <script type="module" src="index.js"></script>
+    <title>Lommeregner</title>
+  </head>
+  <body>
+    <main>
+      <section class="calculator">
+        <h2 id="titel">En simpel lille lommmeregner</h2>
+        <input type="text" id="firstnumber" name="firsttal" />
+        <select name="taltype" id="dropdown">
+          <option value="">--Vælg hvad du vil--</option>
+          <option value="plus" id="plus">+</option>
+          <option value="gange" id="gange">x</option>
+          <option value="minus" id="minus">-</option>
+          <option value="divider" id="divider">/</option>
+        </select>
+        <input type="text" id="secondnumber" name="andettal" />
+
+        <button id="btn">Udregn</button>
+        <form action="" type="text" id="result"></form>
+      </section>
+    </main>
+  </body>
+</html>
