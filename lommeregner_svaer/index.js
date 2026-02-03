@@ -52,7 +52,8 @@ function klik(evt) {
     // ligesom i den simple lommeregner.  Der skal parseInt() på strings til tal
     // skriv resultatet til skærmen med updateScreen()
   } else if (typeOfInput === "CLEAR") {
-    ((firstNumVal = ""), (secondNumVal = ""), (regneArt = "")); // Nulstiller regnestykkets variabler
+    ((firstNumVal = ""), (secondNumVal = ""), (regneArt = ""));
+    // Nulstiller regnestykkets variabler
     // reset alt: lav en reset funktion der nulstiller alle variabler
     // skærmen bliver nulstillet med resetScreen()
     resetScreen();
