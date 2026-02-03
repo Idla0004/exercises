@@ -212,6 +212,10 @@
 // function fire(person) {
 //   person.hired = false;
 // }
+
+// // hire(person4);
+// // // i console.log står Ronald nu som hired.
+
 // function fireOrhire(action, person) {
 //   action(person);
 // }
@@ -219,7 +223,7 @@
 // fireOrhire(fire, person3);
 
 // console.log(person3);
-
+// console.log("person 4", person4);
 // 3 LoadJSON
 // function init() {
 //   console.log("init");
