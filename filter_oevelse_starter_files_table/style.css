@@ -45,6 +45,17 @@ button {
   border: solid 1px #b4cfda;
   border-radius: 5px;
   padding: 10px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  color: #020404;
+  background-color: #c6e5f1;
+  border: solid 1px #98b9c6;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 2px 2px rgb(167, 216, 236);
 }
 
 .buttons-flex {
