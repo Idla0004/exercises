@@ -31,35 +31,71 @@ const tbodyPointer = document.querySelector("tbody");
 showTheseVehicles(vehicles);
 
 function showTheseVehicles(arr) {
+  tbodyPointer.innerHTML = "";
   arr.forEach((each) => {
+    let isElectric;
+    if (each.isElectric) {
+      isElectric = "Yes";
+    } else {
+      isElectric = "No";
+    }
+    let isTandem;
+    if (each.isTandem) {
+      isTandem = "Yes";
+    } else {
+      isTandem = "No";
+    }
     tbodyPointer.innerHTML += `<tr>
   <td>${each.type}</td>
-  <td>${each.fuel}</td>
+  <td>${each.fuel || "Electric"}</td>
   <td>${each.passengers}</td> 
-  <td>${each.stops}</td>
-  <td>${each.ownedBy}</td>
-  <td>${each.isElectric}</td>
-  <td>${each.isTandem}</td>
+  <td>${each.stops || "No stops"}</td>
+  <td>${each.ownedBy || "No one"}</td>
+  <td>${isElectric}</td>
+  <td>${isTandem}</td>
 </tr>`;
   });
 }
 
-// Vi skal lave filtreringer og vise dem med et array af objekter.
-// 1. Lav nogle hardcodede filtreringer:
+// Event listeners til knapperne
+document.getElementById("showAll").addEventListener("click", () => {
+  showTheseVehicles(vehicles);
+});
 
-// 2. en der viser alle el drevne fartøjer
+document.getElementById("electricVehicles").addEventListener("click", () => {
+  const electricVehicles = vehicles.filter(
+    (vehicle) => vehicle.isElectric === true,
+  );
+  showTheseVehicles(electricVehicles);
+});
 
-// 3. en der viser alle fartøjer med mere end 2 sæder
+document.getElementById("moreThanTwoSeats").addEventListener("click", () => {
+  const vehiclesWithMoreThanTwoSeats = vehicles.filter(
+    (vehicle) => vehicle.passengers > 2,
+  );
+  showTheseVehicles(vehiclesWithMoreThanTwoSeats);
+});
 
-// 4. alle el-drevne fartøjer ejet af Jonas
+document
+  .getElementById("electricOwnedByJonas")
+  .addEventListener("click", () => {
+    const electricVehiclesOwnedByJonas = vehicles.filter(
+      (vehicle) => vehicle.isElectric === true && vehicle.ownedBy === "Jonas",
+    );
+    showTheseVehicles(electricVehiclesOwnedByJonas);
+  });
 
-// 5. alle rugbrøds drevne fartøjer med plads til mere end en.
+document.getElementById("extraseats").addEventListener("click", () => {
+  const vehiclesWithAtLeastTwoSeats = vehicles.filter(
+    (vehicle) => vehicle.passengers >= 2,
+  );
+  showTheseVehicles(vehiclesWithAtLeastTwoSeats);
+});
 
-// 6. Lav nogle if statements i showTheseVehicles funktionen så tabellen bliver smukkere: uden undefined og tomme felter og true;
+// Vis alle køretøjer som standard
+showTheseVehicles(vehicles);
 
-// 7. Flyt filtreringerne over på 4 knapper der viser de filtreringer der før var hardcodede + 1 knap til at vise alle (ufiltreret)
-
-// 8. Style tabellen endnu mere
+// 7. Style tabellen endnu mere
 
 // Læs i data attributter pdf'en
 // Data atributter skal altid starte med data- og med små bogstaver efter.

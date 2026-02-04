@@ -1,32 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script type="module" src="script.js"></script>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <table>
-
-        <thead>
-            <tr>
-                <th>Type</th>
-                <th>Fuel</th>
-                <th>Passengers</th>
-                <th>Stops</th>
-                <th>Owned By</th>
-                <th>Electric</th>
-                <th>Tandem</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-
-
-</body>
-
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Fuel</th>
+          <th>Passengers</th>
+          <th>Stops</th>
+          <th>Owned By</th>
+          <th>Electric</th>
+          <th>Tandem</th>
+        </tr>
+      </thead>
+      <tbody>
+        <button id="showAll" data-filter="el">Show All</button>
+        <button id="electricVehicles" data-filter="mereendto">
+          Vis el-drevne fartøjer
+        </button>
+        <button id="moreThanTwoSeats">Vis fartøjer med mere end 2 sæder</button>
+        <button id="electricOwnedByJonas">
+          Vis el-drevne fartøjer ejet af Jonas
+        </button>
+        <button id="extraseats">Filtrer til mindst 2 passagerer</button>
+      </tbody>
+    </table>
+  </body>
 </html>
