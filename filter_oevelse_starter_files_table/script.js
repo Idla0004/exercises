@@ -33,6 +33,7 @@ showTheseVehicles(vehicles);
 function showTheseVehicles(arr) {
   tbodyPointer.innerHTML = "";
   arr.forEach((each) => {
+    // Med if statements på isElectric og isTandem viser den yes or no alt efter om det er true elller undefined
     let isElectric;
     if (each.isElectric) {
       isElectric = "Yes";
@@ -45,6 +46,8 @@ function showTheseVehicles(arr) {
     } else {
       isTandem = "No";
     }
+    // Jeg fjerner for each ved isElectric og isTandem, fordi jeg nu henter svaret med if/else statements.
+    // Jeg bruger or-literal (||) på de andre, fx fuel, for at skrive hvad det er hvis der ellers havde stået undefined.
     tbodyPointer.innerHTML += `<tr>
   <td>${each.type}</td>
   <td>${each.fuel || "Electric"}</td>
@@ -63,9 +66,11 @@ document.getElementById("showAll").addEventListener("click", () => {
 });
 
 document.getElementById("electricVehicles").addEventListener("click", () => {
+  // filtrerer electric fartøjer med vehicles.filter
   const electricVehicles = vehicles.filter(
     (vehicle) => vehicle.isElectric === true,
   );
+  // Henter kun electric fartøjer med showTheseVehicles functionen.
   showTheseVehicles(electricVehicles);
 });
 
@@ -87,15 +92,13 @@ document
 
 document.getElementById("extraseats").addEventListener("click", () => {
   const vehiclesWithAtLeastTwoSeats = vehicles.filter(
-    (vehicle) => vehicle.passengers >= 2,
+    (vehicle) => vehicle.passengers > 1 && vehicle.fuel === "Rugbrød",
   );
   showTheseVehicles(vehiclesWithAtLeastTwoSeats);
 });
 
 // Vis alle køretøjer som standard
 showTheseVehicles(vehicles);
-
-// 7. Style tabellen endnu mere
 
 // Læs i data attributter pdf'en
 // Data atributter skal altid starte med data- og med små bogstaver efter.
