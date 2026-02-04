@@ -20,11 +20,14 @@ tfoot {
 th,
 td {
   border: 1px solid rgb(87, 120, 147);
-  padding: 8px 10px;
+  padding: 10px 10px;
+  min-width: 100px;
+  text-align: left;
 }
 
-td:last-of-type {
-  text-align: center;
+td:first-of-type {
+  text-align: left;
+  font-weight: 600;
 }
 
 tbody > tr:nth-of-type(even) {
@@ -39,27 +42,27 @@ tfoot td {
   font-weight: bold;
 }
 
-button {
-  color: #283439;
-  background-color: #d7f2fd;
-  border: solid 1px #b4cfda;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-button:hover {
-  color: #020404;
-  background-color: #c6e5f1;
-  border: solid 1px #98b9c6;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  box-shadow: 2px 2px rgb(167, 216, 236);
-}
-
 .buttons-flex {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  flex-wrap: nowrap;
+  margin: 20px 0;
+}
+
+.button {
+  background-color: #b4cfda;
+  border: 1px solid rgb(89, 98, 133);
+  color: rgb(42, 67, 102);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.buttons-flex .button:hover {
+  background-color: #80c3db;
+}
+
+.buttons-flex .button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
 }
