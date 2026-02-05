@@ -9,7 +9,7 @@ const breadcrumbList = document.querySelector("ul");
 
 generateBtn.addEventListener("click", klik);
 
-function klik(evt) {
+function klik() {
   breadcrumbList.innerHTML = ""; // sørger for at listen af links er tom, hver gang man trykker på knappen
 
   // her starter jeg funktionen med at vælge alle breadcrumbs (altså bc) og looper igennem dem.

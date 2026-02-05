@@ -30,7 +30,6 @@ const vehicles = [
 ];
 const tbodyPointer = document.querySelector("tbody");
 showTheseVehicles(vehicles);
-
 function showTheseVehicles(arr) {
   tbodyPointer.innerHTML = "";
   arr.forEach((each) => {
@@ -132,3 +131,61 @@ showTheseVehicles(vehicles);
 // }
 // den er smart at bruge til at hente datafilter i stedet for at hente med ID.
 // i er iterator, kan hedder hvad det vil, men den skal stå på den respektive plads.
+
+// Anden måde at fjerne undefined, true osv
+// function showTheseVehicles(arr) {
+//   tbodyPointer.innerHTML = "";
+//   arr.forEach((each) => {
+//     console.log("each.stops", each.stops);
+//     let stopsText;
+//     if (each.stops === undefined) {
+//       stopsText = "-";
+//     } else {
+//       stopsText = each.stops;
+//     } // Hvis den ikke er undefined viser den stoppet, hvis den er undefined viser den bindestregen
+//     tbodyPointer.innerHTML += `<tr>
+//   <td>${each.type}</td>
+//   <td>${each.fuel || "Electric"}</td>
+//   <td>${each.passengers}</td>
+//   <td>${stopsText}</td>
+//   <td>${each.ownedBy || "No one"}</td>
+//   <td>${isElectric}</td>
+//   <td>${isTandem}</td>
+// </tr>`;
+//   });
+// }
+// stopsText i innerhtml, for at den viser variablen med if else text
+
+// Vi kunne også bruge turn area (som prøvet i java øvelse 9)
+// function showTheseVehicles(arr) {
+//   tbodyPointer.innerHTML = "";
+//   arr.forEach((each) => {
+//     tbodyPointer.innerHTML += `<tr>
+//   <td>${each.type}</td>
+//   <td>${each.fuel || "Electric"}</td>
+//   <td>${each.passengers}</td>
+//   <td>${each.stops ? each.stops : "-"}</td>
+//   <td>${each.ownedBy || "No one"}</td>
+//   <td>${isElectric}</td>
+//   <td>${isTandem}</td>
+// </tr>`;
+//   });
+// } // Vi skriver i each stops på innerHTML
+
+// Knowledge coalition
+// function showTheseVehicles(arr) {
+//   tbodyPointer.innerHTML = "";
+//   arr.forEach((each) => {
+//     tbodyPointer.innerHTML += `<tr>
+//   <td>${each.type}</td>
+//   <td>${each.fuel ?? "Ikke oplyst"}</td>
+//   <td>${each.passengers}</td>
+//   <td>${each.stops ?? "-"}</td>
+//   <td>${each.ownedBy ?? "Ikke oplyst"}</td>
+//   <td>${isElectric ? "X" : "-"}</td>
+//   <td>${isTandem ? "X" : "-"}</td>
+// </tr>`;
+//   });
+// }
+// bruger knowledge coalition ved each stops og turn area i isTandem
+// reference - const foo = null ?? "Default string";

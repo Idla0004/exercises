@@ -113,3 +113,29 @@
 //   console.log("They are not...");
 // }
 // // De er stadig ikke ens.
+
+// Turn area øvelse.
+
+// const isElectric = true;
+// let erBilenElektrisk = "";
+// if (
+//   isElectric
+// ) // er det samme som at skrive, isElectric === true, den forventer at den er true.
+// {
+//   erBilenElektrisk = "ja det er den";
+// } else {
+//   erBilenElektrisk = "Nej den er ej";
+// }
+// console.log(erBilenElektrisk); // viser i console.log "ja det er den", fordi isElectric consten er = true
+
+// for at kode det ned med ? skriver vi.
+// const isElectric = true;
+// let erBilenElektrisk = isElectric ? "Ja det er den" : "Nej den er ej";
+// console.log(erBilenElektrisk);
+
+// console.log(isElectric ? "true" : "false");
+// Hvis jeg skriver ? er det en komprimeret if sætning.
+// spørgsmålstegn er if og : er else
+// Hvis jeg ændrer false til true, bliver det true.
+// Det returnerer enten eller, ligesom if og else, og samle det op i en variabel.
+// Du kan komprimere en if sætning ned til en linje.
