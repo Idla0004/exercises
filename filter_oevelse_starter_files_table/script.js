@@ -1,3 +1,4 @@
+// Et objekt med 4-7 properties
 const vehicles = [
   {
     type: "Bus",
@@ -36,18 +37,20 @@ function showTheseVehicles(arr) {
     // Med if statements på isElectric og isTandem viser den yes or no alt efter om det er true elller undefined
     let isElectric;
     if (each.isElectric) {
-      isElectric = "Yes";
+      isElectric = "✓"; // U+2714
     } else {
-      isElectric = "No";
+      isElectric = "X"; // U+2716
     }
     let isTandem;
     if (each.isTandem) {
-      isTandem = "Yes";
+      isTandem = "✓"; // U+2714
     } else {
-      isTandem = "No";
+      isTandem = "X"; // U+2716
     }
     // Jeg fjerner for each ved isElectric og isTandem, fordi jeg nu henter svaret med if/else statements.
     // Jeg bruger or-literal (||) på de andre, fx fuel, for at skrive hvad det er hvis der ellers havde stået undefined.
+
+    // Den laver en streng og bliver vist som inner HTML.
     tbodyPointer.innerHTML += `<tr>
   <td>${each.type}</td>
   <td>${each.fuel || "Electric"}</td>
@@ -59,7 +62,6 @@ function showTheseVehicles(arr) {
 </tr>`;
   });
 }
-
 // Event listeners til knapperne
 document.getElementById("showAll").addEventListener("click", () => {
   showTheseVehicles(vehicles);
@@ -73,14 +75,14 @@ document.getElementById("electricVehicles").addEventListener("click", () => {
   // Henter kun electric fartøjer med showTheseVehicles functionen.
   showTheseVehicles(electricVehicles);
 });
-
+// fartøjer med plads til mere end 2 passagerer
 document.getElementById("moreThanTwoSeats").addEventListener("click", () => {
   const vehiclesWithMoreThanTwoSeats = vehicles.filter(
     (vehicle) => vehicle.passengers > 2,
   );
   showTheseVehicles(vehiclesWithMoreThanTwoSeats);
 });
-
+// ejet af Jonas og elektrisk
 document
   .getElementById("electricOwnedByJonas")
   .addEventListener("click", () => {
@@ -89,7 +91,7 @@ document
     );
     showTheseVehicles(electricVehiclesOwnedByJonas);
   });
-
+// rugbrød med plads til mere end 1
 document.getElementById("extraseats").addEventListener("click", () => {
   const vehiclesWithAtLeastTwoSeats = vehicles.filter(
     (vehicle) => vehicle.passengers > 1 && vehicle.fuel === "Rugbrød",
@@ -103,3 +105,10 @@ showTheseVehicles(vehicles);
 // Læs i data attributter pdf'en
 // Data atributter skal altid starte med data- og med små bogstaver efter.
 // I java for at få fat på det alene, skal man skrive queryselecter("eksempel_btn").dataset.filter
+
+// man kunne også skrive det sådan her:
+// const electricVeh = vehicles.filter((veh) => veh.isElectric);
+// console.log("electricVeh", electricVeh);
+// const moreThantwo = vehicles.filter((veh) => veh.passengers > 2);
+// console.log("Passengesr", moreThantwo);
+// showTheseVehicles(vehicles);
