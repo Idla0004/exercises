@@ -1,0 +1,26 @@
+.language {
+  color: white;
+  background-color: black;
+  border: none;
+  padding: 10px 10px;
+  font-size: 20px;
+  border-radius: 10px;
+  margin: 20px 10px;
+}
+
+option {
+  background-color: rgb(72, 72, 72);
+  color: rgb(255, 255, 255);
+}
+
+.header {
+  background-color: rgb(255, 192, 245);
+  font-size: 35px;
+  height: 200px;
+}
+
+.footer {
+  background-color: rgb(178, 165, 255);
+  font-size: 35px;
+  height: 200px;
+}
