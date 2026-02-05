@@ -112,3 +112,23 @@ showTheseVehicles(vehicles);
 // const moreThantwo = vehicles.filter((veh) => veh.passengers > 2);
 // console.log("Passengesr", moreThantwo);
 // showTheseVehicles(vehicles);
+
+// Hent en knap med data-filter fra HTML
+// document.querySelectorAll("button").forEach((btn, i, arr) => {
+//   console.log("btn", btn);
+//   console.log("i", i); // tager index'et af knapperne i arrayet
+//   console.log("i", arr);
+
+//   //Nu henter vi knapperne til de forskellige funktioner:
+//   btn.addEventListener("click", klik);
+// });
+
+// function klik(evt) {
+//   evt.target;
+//   console.log("klik", evt.target.dataset.filter); // console skriver det valgte dataset i consollen.
+//   if (evt.target.dataset.filter === "mereendto") {
+//     showTheseVehicles(electricVehicles);
+//   } else if
+// }
+// den er smart at bruge til at hente datafilter i stedet for at hente med ID.
+// i er iterator, kan hedder hvad det vil, men den skal stå på den respektive plads.
