@@ -32,3 +32,5 @@ function klik() {
     breadcrumbList.appendChild(listItem);
   });
 }
+
+// Kan skrive /&nbsp; - er et non breaking space, der sørger for der er spacing mellem / og elementerne.

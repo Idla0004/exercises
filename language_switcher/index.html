@@ -1,18 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Language Switcher</title>
     <script type="module" src="js.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <header class="header">UDSKIFTES</header>
     <p>Content</p>
+    <label>
+      <select class="language" name="language">
+        <option value="Select">Choose language</option>
+        <option value="da">Danish</option>
+        <option value="de">German</option>
+      </select>
+    </label>
+
+    <div class="result"></div>
     <div class="footer">UDSKIFTES</div>
-
-</body>
-
+  </body>
 </html>
