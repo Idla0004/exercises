@@ -64,6 +64,8 @@ selectLanguage.addEventListener("change", () => {
 // Sæt dansk som standard, når siden indlæses
 updateTexts("da");
 
+//Noter fra online undervisning - se i words noter.
+
 // !== er en striks ulighedsoperator i JavaScript. Den bruges til at sammenligne to værdier og returnerer true, hvis værdierne ikke er ens både i værdi og type.
 // Hvis værdierne er ens (i både værdi og type), returnerer den false.
 
