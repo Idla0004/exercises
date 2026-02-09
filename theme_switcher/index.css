@@ -1,0 +1,43 @@
+[data-theme="dark"] {
+  --header-bg-col: rgb(15, 53, 78);
+  --header-color: white;
+  --footer-bg-col: rgb(15, 53, 78);
+  --footer-color: white;
+  --main-bg-col: black;
+  --main-text-col: white;
+}
+
+[data-theme="light"] {
+  --header-bg-col: rgb(246, 226, 195);
+  --header-color: rgb(97, 97, 97);
+  --footer-bg-col: rgb(66, 66, 66);
+  --footer-color: white;
+  --main-bg-col: rgb(252, 246, 232);
+  --main-text-col: rgb(57, 53, 53);
+}
+
+[data-theme="hawaii"] {
+  --header-bg-col: #d463a1;
+  --header-color: #554345;
+  --footer-bg-col: rgb(227, 255, 175);
+  --footer-color: rgb(26, 52, 27);
+  --main-bg-col: rgb(184, 227, 255);
+  --main-text-col: rgb(46, 10, 101);
+}
+header {
+  background-color: var(--header-bg-col);
+  color: var(--header-color);
+}
+
+footer {
+  background-color: var(--footer-bg-col);
+  color: var(--footer-color);
+}
+
+body {
+  background-color: var(--main-bg-col);
+}
+
+main {
+  color: var(--main-text-col);
+}
