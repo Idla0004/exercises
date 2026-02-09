@@ -1,0 +1,12 @@
+main {
+  background-color: rgb(151, 207, 255);
+}
+
+.highlight {
+  background-color: transparent;
+}
+
+/* Når knappen er trykket, ændres baggrund på "gode" ord */
+.sfw-mode .highlight {
+  background-color: yellow; /* Gul baggrund for de "gode" ord */
+}
