@@ -87,8 +87,15 @@ function isDog(animal) {
 // samme som select filter, men nu med sortering.
 function selectSort(event) {
   const sortBy = event.target.dataset.sort;
-  console.log(`User selected ${sortBy}`); // tester i console.log og skriver hvilken underoverskrift bruger klikker på.
-  sortList(sortBy); // denne del kalder funktionen, så underoverskrifterne sortere hvad der vises på skærmen ud fra valg.
+  const sortDir = event.target.dataset.sortDirection; // når der er bindestreg i navnet(i html) henter man det med at skrive næste ord med stort bogstav først
+  // toggle the direction - vælger om det på klik skal ascende eller descende.
+  if (sortDir === "asc") {
+    event.target.dataset.sortDirection = "desc";
+  } else {
+    event.target.dataset.sortDirection = "asc";
+  }
+  console.log(`User selected ${sortBy}- ${sortDir}`); // tester i console.log og skriver hvilken underoverskrift bruger klikker på.
+  sortList(sortBy, sortDir); // denne del kalder funktionen, så underoverskrifterne sortere hvad der vises på skærmen ud fra valg.
 }
 
 //dette blev udkommenteret (nogle ting beholdt) og lavet om til sort property.
@@ -102,8 +109,14 @@ function selectSort(event) {
 //   //   }
 
 // Sorterings liste - samme måde som med dyr, sorterer den nu ud fra type.
-function sortList(sortBy) {
+function sortList(sortBy, sortDir) {
   let sortedList = allAnimals;
+  let direction = 1; // variabel til retning.
+  if (sortDir === "desc") {
+    direction = -1;
+  } else {
+    direction = 1;
+  }
   sortedList = sortedList.sort(sortByProperty);
 
   // function til at sortere listen ud fra alfabetisk rækkefølge
@@ -111,9 +124,9 @@ function sortList(sortBy) {
   function sortByProperty(animalA, animalB) {
     // console.log(`sortBy is ${sortBy}`);
     if (animalA[sortBy] < animalB[sortBy]) {
-      return -1;
+      return -1 * direction;
     } else {
-      return 1;
+      return 1 * direction;
     }
   }
   displayList(sortedList);
