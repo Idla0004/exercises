@@ -91,34 +91,42 @@ function selectSort(event) {
   sortList(sortBy); // denne del kalder funktionen, så underoverskrifterne sortere hvad der vises på skærmen ud fra valg.
 }
 
+//dette blev udkommenteret (nogle ting beholdt) og lavet om til sort property.
+// function sortList(sortBy) {
+//   let sortedList = allAnimals;
+
+//   //   if (sortBy === "name") {
+//   sortedList = sortedList.sort(sortByProperty);
+//   //   } else if (sortBy === "type") {
+//   //     sortedList = sortedList.sort(sortByName);
+//   //   }
+
 // Sorterings liste - samme måde som med dyr, sorterer den nu ud fra type.
 function sortList(sortBy) {
   let sortedList = allAnimals;
+  sortedList = sortedList.sort(sortByProperty);
 
-  if (sortBy === "name") {
-    sortedList = sortedList.sort(sortByName);
-  } else if (sortBy === "type") {
-    sortedList = sortedList.sort(sortByType);
+  // function til at sortere listen ud fra alfabetisk rækkefølge
+  // Kode ændret og skrevet med [sortBy] i stedet for name, nu kan de sortere alle ting(name, type, desc og age!)
+  function sortByProperty(animalA, animalB) {
+    // console.log(`sortBy is ${sortBy}`);
+    if (animalA[sortBy] < animalB[sortBy]) {
+      return -1;
+    } else {
+      return 1;
+    }
   }
   displayList(sortedList);
 }
 
-// function til at sortere listen ud fra alfabetisk rækkefølge
-function sortByName(animalA, animalB) {
-  if (animalA.name < animalB.name) {
-    return -1;
-  } else {
-    return 1;
-  }
-}
-// sorterer ud fra type af dyr, stadig alfabetiske navne
-function sortByType(animalA, animalB) {
-  if (animalA.type < animalB.type) {
-    return -1;
-  } else {
-    return 1;
-  }
-}
+// // sorterer ud fra type af dyr, stadig alfabetiske navne - behøver ikke med den opdaterede kode ovenover!
+// function sortByType(animalA, animalB) {
+//   if (animalA.type < animalB.type) {
+//     return -1;
+//   } else {
+//     return 1;
+//   }
+// }
 
 function displayList(animals) {
   // clear the list
