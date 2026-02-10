@@ -26,12 +26,12 @@ function klik() {
   hasTheButtonBeenClickedFlag = true;
 }
 
-// udskifter de dårlige ord, med de gode ord. - virkede men skulle også tilføje highlight til de gode ord.
+// udskifter de dårlige ord, med de gode ord. - virker med gul baggrund på gode ord.
 function sfw() {
   curseWords.forEach((word) => {
     if (word.bad) {
       const replacement = `<span class="highlight">${word.good}</span>`;
-      theText = theText.replaceAll(word.bad, replacement); // erstatter bad med good.
+      theText = theText.replaceAll(word.bad, replacement); // erstatter bad med good replacement, så good ord vises med gul baggrund
       console.log("Bad word", word.bad);
       console.log("Bad word", word.good);
     }
