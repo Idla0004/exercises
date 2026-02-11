@@ -14,7 +14,7 @@ const Animal = {
 // setting objekt for de globale
 const settings = {
   filterBy: "all",
-  sortBy: "name",
+  sortby: "name",
   sortDir: "asc",
 };
 
@@ -98,32 +98,39 @@ function isDog(animal) {
 
 // samme som select filter, men nu med sortering.
 function selectSort(event) {
-  const sortBy = event.target.dataset.sort;
+  const sortby = event.target.dataset.sort;
   const sortDir = event.target.dataset.sortDirection; // når der er bindestreg i navnet(i html) henter man det med at skrive næste ord med stort bogstav først
+  // find old sort by element and remove .sortby class
+  const oldElement = document.querySelector(`[data-sort='${settings.sortby}']`);
+  oldElement.classList.remove("sortby");
+
+  // indicate active sort
+  event.target.classList.add("sortby");
+
   // toggle the direction - vælger om det på klik skal ascende eller descende.
   if (sortDir === "asc") {
     event.target.dataset.sortDirection = "desc";
   } else {
     event.target.dataset.sortDirection = "asc";
   }
-  console.log(`User selected ${sortBy}- ${sortDir}`); // tester i console.log og skriver hvilken underoverskrift bruger klikker på.
-  setSort(sortBy, sortDir); // denne del kalder funktionen, så underoverskrifterne sortere hvad der vises på skærmen ud fra valg.
+  console.log(`User selected ${sortby}- ${sortDir}`); // tester i console.log og skriver hvilken underoverskrift bruger klikker på.
+  setSort(sortby, sortDir); // denne del kalder funktionen, så underoverskrifterne sortere hvad der vises på skærmen ud fra valg.
 }
 
-function setSort(sortBy, sortDir) {
-  settings.sortBy = sortBy;
+function setSort(sortby, sortDir) {
+  settings.sortby = sortby;
   settings.sortDir = sortDir;
   buildList();
 }
 
 //dette blev udkommenteret (nogle ting beholdt) og lavet om til sort property.
-// function sortList(sortBy) {
+// function sortList(sortby) {
 //   let sortedList = allAnimals;
 
-//   //   if (sortBy === "name") {
-//   sortedList = sortedList.sort(sortByProperty);
-//   //   } else if (sortBy === "type") {
-//   //     sortedList = sortedList.sort(sortByName);
+//   //   if (sortby === "name") {
+//   sortedList = sortedList.sort(sortbyProperty);
+//   //   } else if (sortby === "type") {
+//   //     sortedList = sortedList.sort(sortbyName);
 //   //   }
 
 // Sorterings liste - samme måde som med dyr, sorterer den nu ud fra type.
@@ -135,13 +142,13 @@ function sortList(sortedList) {
   } else {
     settings.direction = 1;
   }
-  sortedList = sortedList.sort(sortByProperty);
+  sortedList = sortedList.sort(sortbyProperty);
 
   // function til at sortere listen ud fra alfabetisk rækkefølge
-  // Kode ændret og skrevet med [sortBy] i stedet for name, nu kan de sortere alle ting(name, type, desc og age!)
-  function sortByProperty(animalA, animalB) {
-    // console.log(`sortBy is ${sortBy}`);
-    if (animalA[settings.sortBy] < animalB[settings.sortBy]) {
+  // Kode ændret og skrevet med [sortby] i stedet for name, nu kan de sortere alle ting(name, type, desc og age!)
+  function sortbyProperty(animalA, animalB) {
+    // console.log(`sortby is ${sortby}`);
+    if (animalA[settings.sortby] < animalB[settings.sortby]) {
       return -1 * direction;
     } else {
       return 1 * direction;
@@ -151,7 +158,7 @@ function sortList(sortedList) {
 }
 
 // // sorterer ud fra type af dyr, stadig alfabetiske navne - behøver ikke med den opdaterede kode ovenover!
-// function sortByType(animalA, animalB) {
+// function sortbyType(animalA, animalB) {
 //   if (animalA.type < animalB.type) {
 //     return -1;
 //   } else {
