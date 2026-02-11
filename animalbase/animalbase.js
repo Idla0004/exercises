@@ -10,6 +10,7 @@ const Animal = {
   desc: "-unknown animal-",
   type: "",
   age: 0,
+  star: false,
 };
 // setting objekt for de globale
 const settings = {
@@ -48,8 +49,8 @@ async function loadJSON() {
 function prepareObjects(jsonData) {
   allAnimals = jsonData.map(preapareObject);
 
-  // TODO: This might not be the function we want to call first
-  displayList(allAnimals);
+  // Ændret så vi filtrerer og sortere ved første load.
+  buildList();
 }
 
 function preapareObject(jsonObject) {
@@ -191,6 +192,24 @@ function displayAnimal(animal) {
   clone.querySelector("[data-field=desc]").textContent = animal.desc;
   clone.querySelector("[data-field=type]").textContent = animal.type;
   clone.querySelector("[data-field=age]").textContent = animal.age;
+
+  //tilføjer if else statement med stjerne
+  if (animal.star === true) {
+    clone.querySelector("[data-field=star]").textContent = "⭐";
+  } else {
+    clone.querySelector("[data-field=star]").textContent = "✰";
+  }
+
+  //tilføjer klikbar funktion til stjernerne
+  clone.querySelector("[data-field=star]").addEventListener("click", clickStar);
+  function clickStar() {
+    if (animal.star === true) {
+      animal.star = false;
+    } else {
+      animal.star = true;
+    }
+    buildList();
+  }
 
   // append clone to list
   document.querySelector("#list tbody").appendChild(clone);
