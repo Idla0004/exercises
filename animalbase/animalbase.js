@@ -11,6 +11,7 @@ const Animal = {
   type: "",
   age: 0,
   star: false,
+  winner: false,
 };
 // setting objekt for de globale
 const settings = {
@@ -207,6 +208,20 @@ function displayAnimal(animal) {
       animal.star = false;
     } else {
       animal.star = true;
+    }
+    buildList();
+  }
+
+  // Winners
+  clone.querySelector("[data-field=winner]").dataset.winner = animal.winner;
+  clone
+    .querySelector("[data-field=winner]")
+    .addEventListener("click", clickWinner);
+  function clickWinner() {
+    if (animal.winner === true) {
+      animal.winner = false;
+    } else {
+      animal.winner = true;
     }
     buildList();
   }
