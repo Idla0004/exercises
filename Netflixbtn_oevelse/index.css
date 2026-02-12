@@ -1,0 +1,47 @@
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+button {
+  padding: 10px 30px;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.923);
+  border: solid 2px;
+  border-color: rgb(103, 103, 103);
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden; /* holder animation inde i button */
+}
+
+.progress {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(128, 128, 128, 0.618);
+  transform: scaleX(0); /* Starter med 0% bredde */
+  transform-origin: left;
+  animation: none;
+}
+
+@keyframes slide {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes darkenBackground {
+  from {
+    background-color: rgb(255, 255, 255);
+  }
+  to {
+    background-color: #202020;
+  }
+}
+
+.darken {
+  animation: darkenBackground 1.5s forwards;
+}
