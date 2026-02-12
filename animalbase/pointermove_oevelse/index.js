@@ -11,7 +11,7 @@ function colorChange(e) {
   const ratio = e.clientX / window.innerWidth; // window.innerwidth bruges til at dividere.
   const percent = ratio * 100;
 
- // document.body.style.backgroundColor = `hsl(0, ${percent}%, ${percent}%)`;
-  
+  // document.body.style.backgroundColor = `hsl(0, ${percent}%, ${percent}%)`;
+
   document.body.style.backgroundColor = `hsl(0, ${percent}%, ${percent}%)`;
 }
