@@ -12,6 +12,5 @@ function colorChange(e) {
   const percent = ratio * 100;
 
   // document.body.style.backgroundColor = `hsl(0, ${percent}%, ${percent}%)`;
-
-  document.body.style.backgroundColor = `hsl(0, ${percent}%, ${percent}%)`;
+  document.querySelector("body").style.setProperty("--pointerx", percent);
 }
