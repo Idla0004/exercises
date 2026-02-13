@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const progressBar = document.querySelector(".progress");
 
   // Skjul knappen ved start
-  progressButton.style.opacity = "0";
+  progressButton.style.opacity = "0"; // Knap er usynlig til start
   progressButton.style.pointerEvents = "none"; // gør button ikke-klikbar
 
   // Vis knappen og start animationen efter 1.5 sekund
