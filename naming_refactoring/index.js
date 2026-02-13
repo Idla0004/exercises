@@ -1,12 +1,11 @@
-let discount = 0.2;
-let price = 800;
+let discountPercent = 0.2;
 
-function withDiscount(fullPrice, membersDiscount) {
-  if (membersDiscount) {
-    return fullPrice - fullPrice * discount;
+function calculatePrice(price, isPremiumMember) {
+  if (isPremiumMember) {
+    return price - price * discountPercent;
   }
-  return fullPrice;
+  return price;
 }
 
-let totalPrice = withDiscount(price, true);
-console.log(totalPrice);
+let finalPrice = calculatePrice(800, true);
+console.log(finalPrice);
