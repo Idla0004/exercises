@@ -5,7 +5,7 @@ async function fetchData() {
   updateInQueue(data.inQueue);
 }
 
-function updateInQueue(value) {
+async function updateInQueue(value) {
   const inQueueElement = document.getElementById("inQueueValue");
   inQueueElement.textContent = value;
 
@@ -17,7 +17,7 @@ function updateInQueue(value) {
 }
 
 function startUpdatingData() {
-  setInterval(fetchData, 1000);
+  setInterval(fetchData, 10000);
 }
 
 window.onload = startUpdatingData;
