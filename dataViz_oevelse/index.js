@@ -1,21 +1,23 @@
 async function fetchData() {
-  const response = await fetch("https://kea-alt-del.dk/kata-distortion/"); // fetch henter data fra URL’en. await gør, at koden venter på at fetch er færdig
-  const data = await response.json(); // response.json() konverterer det hentede JSON-svar til et JavaScript-objekt.
-  // await venter på, at konverteringen er færdig.
-  // Resultatet gemmes i variablen data.
-
+  const response = await fetch("https://kea-alt-del.dk/kata-distortion/");
+  const data = await response.json();
   console.log("Ny data hentet:", data.inQueue);
-  updateInQueue(data.inQueue); // Kalder funktionen updateInQueue med værdien af data.inQueue
+  updateInQueue(data.inQueue);
 }
 
 function updateInQueue(value) {
-  // Definerer en funktion kaldet updateInQueue, der tager en parameter value.
-  document.getElementById("inQueueValue").textContent = value; // Finder HTML-elementet med id="inQueueValue" og opdaterer teksten til ny opdateret værdi
+  const inQueueElement = document.getElementById("inQueueValue");
+  inQueueElement.textContent = value;
+
+  const needle = document.getElementById("needle");
+  // Beregn rotation baseret på værdien (f.eks. 0-30, hvor 30 er max)
+  const maxValue = 30; // Juster dette baseret på dine forventede værdier
+  const rotationDegree = (value / maxValue) * 180 - 90; // Skaler til -90 til 90 grader
+  needle.style.transform = `translateX(-50%) rotate(${rotationDegree}deg)`;
 }
 
 function startUpdatingData() {
-  // Definerer en funktion kaldet startUpdatingData.
-  setInterval(fetchData, 1000); // Kalder funktionen fetchData hvert sekund
+  setInterval(fetchData, 1000);
 }
 
-window.onload = startUpdatingData; // Når hele siden er færdig med at loade, kalder den startUpdatingData. Starter den automatiske opdatering
+window.onload = startUpdatingData;

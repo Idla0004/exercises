@@ -1,7 +1,40 @@
-/* .inQueueStyle {
+.speedometer {
+  margin: 2rem 5rem;
   background-color: rgb(111, 171, 205);
   width: 200px;
   height: 100px;
   border-top-left-radius: 100px;
   border-top-right-radius: 100px;
-} */
+  position: relative;
+  overflow: hidden;
+}
+
+.needle-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 100px;
+}
+
+#needle {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 110px;
+  background-color: rgb(58, 86, 134);
+  transform-origin: bottom center;
+  transition: transform 0.5s ease-out;
+}
+
+#inQueueValue {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: white;
+}
