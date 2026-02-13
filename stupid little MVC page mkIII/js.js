@@ -4,8 +4,11 @@ const h2names = document.querySelector("#names");
 const inputName = document.querySelector("#name");
 const button = document.querySelector("button");
 
+const modelFetchedfromLS = JSON.parse(localStorage.getItem("stupidarray")); // sætter navnene ind som et array igen.
+console.log("modelFetchedfromLS", modelFetchedfromLS);
 //Model
-const model = ["Peter", "Paul", "Mary"];
+// const model = ["Peter", "Paul", "Mary"];
+const model = modelFetchedfromLS ?? ["Peter", "Paul", "Mary"]; // ?? er knowledge coalition
 // controller
 init();
 
@@ -22,6 +25,7 @@ function removeNameFromModel(id) {
 }
 
 function upDateView() {
+  localStorage.setItem("stupidarray", JSON.stringify(model)); // stringify laver array om til en string
   h2names.innerHTML = "";
   model.forEach((each, i) => {
     h2names.innerHTML += `<span class="clickname" data-id="${i}">${each}</span> `;
