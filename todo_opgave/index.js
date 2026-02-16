@@ -12,6 +12,7 @@ function submitToDo() {
     text: todoText.value,
     done: false,
     unchecked: true,
+    star: true,
     id: self.crypto.randomUUID(),
   };
   todoArr.push(todoObject);
@@ -28,10 +29,13 @@ function showTaskArr() {
   todoContainer.innerHTML = "";
   todoArr.forEach((elm) => {
     const li = document.createElement("li");
-    li.innerHTML = `<p>${elm.text}</p>
-    <p class="checkbox">${elm.unchecked ? "o" : "✓"}</p>`;
+    li.innerHTML = `<p class="checkbox">${elm.unchecked ? "o" : "✓"}
+    </p>
+    <p>${elm.text}</p>
+     <p class="star">${elm.star ? "☆" : "★"}</p> `;
 
     todoContainer.appendChild(li);
+    todoText.value = "";
 
     li.addEventListener("click", (evt) => {
       if (evt.target.classList.contains("checkbox")) {
@@ -40,8 +44,19 @@ function showTaskArr() {
         filterAndSortTaskArr();
       }
     });
+
+    li.addEventListener("click", (event) => {
+      if (event.target.classList.contains("star")) {
+        console.log("vis ikon");
+        elm.star = !elm.star; // (! gør den til det modsatte)
+        filterAndSortTaskArr();
+      }
+    });
   });
 }
+
+// Filtrer med knapper
+
 //gamle liste
 
 // function showTaskArr() {
@@ -54,28 +69,3 @@ function showTaskArr() {
 // kig på local storage øvelse fra fredag d. 13. februar
 
 // måske bruges til todo eller done ikoner
-
-// function displayCheck(list) {
-//   // create clone
-//   const clone = document
-//     .querySelector("template#checkbox")
-//     .content.cloneNode(true);
-// }
-
-// //tilføjer if else statement med stjerne
-// if (list.done === true) {
-//   clone.querySelector("[data-field=todo]").textContent = "✓";
-// } else {
-//   clone.querySelector("[data-field=todo]").textContent = "○";
-// }
-
-// //tilføjer klikbar funktion til stjernerne
-// clone.querySelector("[data-field=todo]").addEventListener("click", clickStar);
-// function clickStar() {
-//   if (list.done === true) {
-//     list.done = false;
-//   } else {
-//     list.done = true;
-//   }
-//   buildList();
-// }

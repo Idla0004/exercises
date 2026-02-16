@@ -1,0 +1,27 @@
+#filtertodo,
+#filterdone {
+  display: inline-block;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px 20px;
+  width: 150px;
+  text-align: center;
+  margin: 10px 0px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+ul {
+  display: inline;
+}
+
+li {
+  display: flex;
+  list-style: none;
+  border-bottom: solid 1px black;
+  max-width: 400px;
+}
+
+.checkbox {
+  margin: auto 10px;
+  align-items: right;
+}
