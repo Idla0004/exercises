@@ -9,6 +9,7 @@ if (localStorageTheme) {
 }
 
 document.querySelector(".theme").addEventListener("change", selectTheme);
+
 function selectTheme(evt) {
   localStorage.setItem("savedtheme", evt.target.value); // henter localstorage i console.log > storage > local storage
   document.querySelector("body").dataset.theme = evt.target.value;
