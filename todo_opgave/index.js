@@ -42,6 +42,7 @@ function showTaskArr() {
         console.log("vis ikon");
         elm.unchecked = !elm.unchecked; // (! gør den til det modsatte)
         filterAndSortTaskArr();
+        console.log("stjerne klikket", `${elm.id}`); // tjekker id i console log
       }
     });
 
