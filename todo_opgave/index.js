@@ -1,5 +1,5 @@
-const todoText = document.querySelector("#todo_text");
-const todoBtn = document.querySelector(".todo");
+const todoText = document.querySelector("#todo_input");
+const todoBtn = document.querySelector(".todobtn");
 const todoContainer = document.querySelector(".todo_container");
 const unchecked = document.querySelector(".unchecked");
 const todoArr = [];
@@ -31,7 +31,7 @@ function showTaskArr() {
     const li = document.createElement("li");
     li.innerHTML = `<p class="checkbox">${elm.unchecked ? "o" : "✓"}
     </p>
-    <p>${elm.text}</p>
+    <p class="textelement">${elm.text}</p>
      <p class="star">${elm.star ? "☆" : "★"}</p> `;
 
     todoContainer.appendChild(li);

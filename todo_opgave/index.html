@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="index.css" />
     <title>Document</title>
   </head>
-  <body>
+  <body class="todo-body">
+    <h1>TO-DO LISTE</h1>
     <div class="filterbuttons">
       <button id="filtertodo" data-action="todo" data-filter="todo">
         To Do
@@ -16,9 +17,9 @@
         Done
       </button>
     </div>
-    <section>
-      <input type="text" id="todo_text" />
-      <button class="todo">Add to list</button>
+    <section class="todo-box">
+      <input type="text" id="todo_input" placeholder="Skriv din to-do" />
+      <button class="todobtn">Tilføj to-do</button>
       <ul class="todo_container"></ul>
     </section>
   </body>
