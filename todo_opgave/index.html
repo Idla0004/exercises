@@ -9,22 +9,26 @@
   </head>
   <body class="todo-body">
     <h1>TO-DO LISTE</h1>
-    <div class="filterbuttons">
-      <button id="filtertodo" data-action="todo" data-filter="todo">
+    <div>
+      <button id="btntodo" class="tab active_tab" data-filter="todo">
         To Do
       </button>
-      <button id="filterdone" data-action="done" data-filter="done">
-        Done
-      </button>
+      <button id="btndone" class="tab" data-filter="done">Done</button>
     </div>
-    <section class="list-containers">
+    <section id="todolist">
       <div class="todo-box">
         <input type="text" id="todo_input" placeholder="Skriv din to-do" />
         <button class="writetodobtn">Tilføj to-do</button>
+        <div class="info">
+          <p>Favoriser en to-do - tryk på ☆</p>
+        </div>
         <ul class="todo_container"></ul>
       </div>
+    </section>
+    <section id="donelist">
       <div class="done-box hidden">
         <ul class="done_container"></ul>
+        <img src="img/" alt="" />
       </div>
     </section>
   </body>
