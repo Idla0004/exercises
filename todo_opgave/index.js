@@ -26,6 +26,8 @@ function showNotDonelist() {
   todoList.style.zIndex = "1";
   doneList.style.zIndex = "0";
   doneBtn.style.zIndex = "0";
+  notdoneBtn.style.backgroundColor = "#f0ede4";
+  doneBtn.style.backgroundColor = "#79744e";
 }
 
 function submitToDo() {
@@ -53,53 +55,61 @@ function showTaskArr() {
 
   todoArr.forEach((elm) => {
     const li = document.createElement("li");
-    li.innerHTML = `<p class="checkbox">${elm.unchecked ? "o" : "✓"}
-    </p>
-    <p class="textelement">${elm.text}</p>
-     <p class="star">${elm.star ? "☆" : "★"}</p> `;
+    // opdaterer HTML med skrevet to-do og ikoner
+    li.innerHTML = `
+  <img class="checkbox" src="img/${elm.unchecked ? "unchecked.webp" : "checkedoff.webp"}" alt="Circle to check and uncheck"/>
+  <p class="textelement">${elm.text}</p>
+  <img class="star" src="img/${elm.star ? "star.webp" : "starfilled.webp"}" alt="Star icon"/>
+`;
 
+    // hvis to-doen er checked af, tilføjer jeg delete-ikonet
+    if (!elm.unchecked) {
+      li.innerHTML += `<img class="deleteimg" src="img/trashclosed.webp" ${elm.delete}></img>`;
+    }
+
+    // Tilføjer to-do's i de rigtige containers
     if (elm.unchecked) {
       todoContainer.appendChild(li);
     } else {
-      doneContainer.appendChild(li); // flytter to do tekst til done containeren
-      li.innerHTML = `<p class="checkbox">${elm.unchecked ? "o" : "✓"}
-    </p>
-    <p class="textelement">${elm.text}</p>
-     <p class="star">${elm.star ? "☆" : "★"}</p>
-     <img src="img/delete.webp" class="deleteimg" ${elm.delete}></img>`;
-    }
+      doneContainer.appendChild(li);
+    } // flytter to do tekst til done containeren
 
+    // tilføjet klik-event på checkbox
     li.addEventListener("click", (evt) => {
       if (evt.target.classList.contains("checkbox")) {
         console.log("vis ikon");
-        elm.unchecked = !elm.unchecked; // (! skifter til checked status)
-      }
-      showTaskArr(); // opdaterer visningen
-      console.log("check boxed is check of", `${elm.id}`); // tjekker id i console log
-      if (evt.target.classList.contains("star")) {
+        elm.unchecked = !elm.unchecked;
+        console.log("check boxed is check of", `${elm.id}`); // tjekker id i console log
+
+        // opdaterer først ikonet, efter går setTimeout igang
+        evt.target.src = `img/${elm.unchecked ? "unchecked.webp" : "checkedoff.webp"}`;
+
+        // setTimeout sørger for, at brugeren når at se, at to-do'en bliver klikket af, inden den rykkes til "done"-listen
+        if (!elm.unchecked) {
+          setTimeout(() => {
+            showTaskArr();
+          }, 500); // (flytter den færdige opgave til "done"-listen efter forsinkelse på halvt sekund.
+        }
+      } else if (evt.target.classList.contains("star")) {
         console.log("vis ikon");
         elm.star = !elm.star; // skifter favorit status
         showTaskArr(); // opdaterer visningen
-      }
-      if (evt.target.classList.contains("deleteimg")) {
+      } else if (evt.target.classList.contains("deleteimg")) {
         // hvis event indeholder delete billedet
-        const index = todoArr.findIndex(
-          (targetArray) => targetArray.id === elm.id, // index finder indexet på det specifikke liste element.
-        );
-        todoArr.splice(index, 1); // hvis trykket på, så bliver elementet/to do teksten slettet.
-        filterAndSortTaskArr();
+        // Skifter til billede af åben skraldespan ved klik:
+        evt.target.src = "img/trashopen.webp";
+        // sletter to-do'en efter halv sekund
+        setTimeout(() => {
+          const index = todoArr.findIndex(
+            (targetArray) => targetArray.id === elm.id, // index finder indexet på det specifikke liste element.
+          );
+          todoArr.splice(index, 1); // hvis trykket på, så bliver elementet/to do teksten slettet.
+          showTaskArr();
+        }, 500);
       }
     });
   });
 }
-
-//gamle liste
-
-// function showTaskArr() {
-//   todoArr.forEach((elm) => {
-//     todoContainer.innerHTML += `<li>${elm.text}</li>`;
-//   });
-// }
 
 // skal afspejle at id er valgt, når en ting på listen kan slettes igen.
 // kig på local storage øvelse fra fredag d. 13. februar

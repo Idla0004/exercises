@@ -95,11 +95,6 @@ button {
   font-family: poppins;
 }
 
-.info {
-  margin: 1.5rem 20px 0px 20px;
-  font-family: poppins;
-}
-
 .writetodobtn {
   margin: 1.5rem 20px 0px -25px;
   border: solid 2px #4c4d52;
@@ -124,23 +119,12 @@ li {
   font-family: poppins;
   font-size: 20px;
   margin: 1.5rem 20px 0px 20px;
+  padding-bottom: 5px;
   color: #333436;
 }
 
 li p {
-  margin: 10px auto;
-}
-
-.checkbox {
-  display: block;
-  align-items: flex-start;
-  margin-left: 20px;
-}
-
-.star {
-  display: block;
-  align-items: flex-end;
-  margin-right: 20px;
+  margin: auto;
 }
 
 *:focus {
@@ -152,10 +136,31 @@ li p {
   grid-template-columns: 1fr 1fr;
 }
 
+.info {
+  display: block;
+  margin: 1.5rem 20px 0px 20px;
+  font-family: poppins;
+  font-size: 15px;
+}
+
+/* billeder */
+.uncheckedstar {
+  vertical-align: bottom;
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
+}
+
+.checkbox,
+.star {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px 0 10px;
+}
+
 .deleteimg {
-  width: 30px;
-  height: 30px;
-  margin: 0.5rem 10px 0px 0px;
+  width: 40px;
+  height: 40px;
 }
 
 /* .list-containers {
