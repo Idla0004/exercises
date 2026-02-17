@@ -79,7 +79,7 @@ function showTaskArr() {
       if (evt.target.classList.contains("checkbox")) {
         console.log("vis ikon");
         elm.unchecked = !elm.unchecked;
-        console.log("check boxed is check of", `${elm.id}`); // tjekker id i console log
+        console.log("check boxed of ID", `${elm.id}`); // tjekker id i console log
 
         // opdaterer først ikonet, efter går setTimeout igang
         evt.target.src = `img/${elm.unchecked ? "unchecked.webp" : "checkedoff.webp"}`;
@@ -92,10 +92,10 @@ function showTaskArr() {
         }
       } else if (evt.target.classList.contains("star")) {
         console.log("vis ikon");
-        elm.star = !elm.star; // skifter favorit status
+        elm.star = !elm.star; // fylder sterne ikon, hvis noget er vigtigt
         showTaskArr(); // opdaterer visningen
-      } else if (evt.target.classList.contains("deleteimg")) {
         // hvis event indeholder delete billedet
+      } else if (evt.target.classList.contains("deleteimg")) {
         // Skifter til billede af åben skraldespan ved klik:
         evt.target.src = "img/trashopen.webp";
         // sletter to-do'en efter halv sekund
