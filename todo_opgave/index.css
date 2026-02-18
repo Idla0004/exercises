@@ -16,6 +16,7 @@ h1 {
 
 .todo-body {
   background-color: #dedbcc;
+  margin: 20px;
 }
 
 button {
@@ -50,7 +51,7 @@ button {
 #btndone {
   background-color: #79744e;
   border: none;
-  margin: -18.5px;
+  margin: -18px;
   position: relative;
   z-index: 0;
   border-left: none;
@@ -75,7 +76,9 @@ button {
   border-right: solid #e3ad55;
   border-bottom: solid #e3ad55;
   width: 480px;
-  height: 800px;
+  height: 650px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 #todolist {
@@ -88,23 +91,33 @@ button {
   z-index: 0;
 }
 
+.todo-box {
+  display: flex;
+}
+
 #todo_input {
-  margin: 1.5rem 20px 0px 20px;
-  padding: 8px 20px;
+  margin: 1.5rem 0px 0px 20px;
+  border: solid 2px #4c4d52;
+  font-family: poppins;
+  width: 150px;
+}
+
+#amount_input {
+  margin: 1.5rem 0px 0px 20px;
+  width: 120px;
   border: solid 2px #4c4d52;
   font-family: poppins;
 }
 
 .writetodobtn {
-  margin: 1.5rem 20px 0px -25px;
+  margin: 1.5rem 0px 0px 20px;
   border: solid 2px #4c4d52;
   background-color: #4c4d52;
   color: white;
-  padding: 8px 15px;
+  padding: 10px 25px;
   cursor: pointer;
   font-family: poppins;
-  border-bottom-right-radius: 15px;
-  border-top-right-radius: 15px;
+  align-content: end;
 }
 
 ul,

@@ -17,16 +17,22 @@
     </div>
     <section id="todolist">
       <div class="todo-box">
-        <input type="text" id="todo_input" placeholder="Skriv din to-do" />
-        <button class="writetodobtn">Tilføj to-do</button>
-        <div class="info">
-          <p class="important">
-            Ekstra vigtigt? - tryk på
-            <img src="img/star.webp" alt="star icon" class="uncheckedstar" />
-          </p>
-        </div>
-        <ul class="todo_container"></ul>
+        <input type="text" id="todo_input" placeholder="Add to-do.." />
+        <input
+          type="number"
+          name="Number"
+          id="amount_input"
+          placeholder="Add amount"
+        />
+        <button class="writetodobtn">Add to list</button>
       </div>
+      <div class="info">
+        <p class="important">
+          Important? - check off
+          <img src="img/star.webp" alt="star icon" class="uncheckedstar" />
+        </p>
+      </div>
+      <ul class="todo_container"></ul>
     </section>
     <section id="donelist">
       <div class="done-box hidden">
